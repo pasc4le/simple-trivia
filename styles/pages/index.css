@@ -1,0 +1,14 @@
+/*
+ * **Page-specific Style Conventions**
+ * Use nested css to target a style of a specific page;
+ * the root element should have an id with this format: "{page-route}-wrapper"
+ * e.g. The wrapper for the '/' route is '#index-wrapper'
+ */
+#index-wrapper {
+    @apply bg-black h-screen;
+    @apply flex items-center justify-center;
+
+    h2 {
+        @apply text-5xl text-white;
+    }
+}
