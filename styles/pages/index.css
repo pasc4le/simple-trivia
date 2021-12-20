@@ -9,7 +9,7 @@
     @apply flex items-center justify-center flex-col;
 
     main {
-        min-width: 500px;
+        @apply sm:w-[300px] md:w-[500px] w-full px-4;
 
         h2 {
             @apply text-5xl text-gray-800;
