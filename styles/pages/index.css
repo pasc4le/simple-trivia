@@ -5,10 +5,65 @@
  * e.g. The wrapper for the '/' route is '#index-wrapper'
  */
 #index-wrapper {
-    @apply bg-black h-screen;
-    @apply flex items-center justify-center;
+    @apply bg-warmGray-100 h-screen;
+    @apply flex items-center justify-center flex-col;
 
-    h2 {
-        @apply text-5xl text-white;
+    main {
+        min-width: 500px;
+
+        h2 {
+            @apply text-5xl text-gray-800;
+        }
+
+        button {
+            @apply w-full;
+            @apply bg-blue-500 text-white text-xl py-2 rounded-sm mt-5;
+        }
+
+        .end {
+            @apply text-4xl text-warmGray-700 text-center;
+        }
+
+        .result {
+            @apply text-center text-xl;
+
+            span {
+                @apply text-warmGray-500;
+            }
+        }
+
+        .question {
+            max-width: 500px;
+            @apply flex flex-col items-center justify-center;
+
+            hr {
+                @apply w-full border-warmGray-300;
+            }
+
+            h3 {
+                @apply text-3xl mb-4 text-warmGray-700;
+            }
+
+            .answer {
+                @apply bg-white text-blue-500 shadow-sm;
+                @apply hover:scale-110;
+
+                &.correct {
+                    @apply border-2 border-green-500;
+                }
+
+                &.selected.wrong {
+                    @apply !bg-red-500 !text-white;
+                }
+
+                &.selected.correct {
+                    @apply !bg-green-500 !text-white;
+                }
+            }
+
+            .next {
+                @apply mt-9 w-2/4 rounded-lg shadow-md;
+            }
+        }
     }
 }
