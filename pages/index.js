@@ -7,8 +7,7 @@ const API_CATEGORIES = new URL('api_category.php', API_HOST)
 const API_QUESTIONS = new URL('api.php', API_HOST)
 
 const getQuestions = async (c, d, a = 10) => {
-  const apiUrl = `${API_QUESTIONS}?amount=${String(a)}${d != 'any' ? '&difficulty=' + d : null}${c != -1 ? '&category=' + String(c) : null}`
-  console.log(apiUrl)
+  const apiUrl = `${API_QUESTIONS}?amount=${String(a)}${d != 'any' ? '&difficulty=' + d : ""}${c != -1 ? '&category=' + String(c) : ""}`
   return await axios.get(apiUrl).then(r => r.data)
 }
 
@@ -31,7 +30,6 @@ export function Question({ question, next }) {
     const answers = question.incorrect_answers
     answers.push(question.correct_answer)
     shuffleArray(answers)
-    console.log(question)
 
     setSelectedAnswer("")
     setAnswers(answers)
@@ -74,7 +72,6 @@ export default function Home() {
 
   useEffect(async () => {
     const d = await axios.get(API_CATEGORIES).then(r => r.data)
-    console.log(d)
     const dParsed = [{
       value: -1,
       label: 'All Categories'
@@ -91,7 +88,6 @@ export default function Home() {
   const chosenDifficulty = ({ value }) => setDifficulty(value)
 
   const nextQuestion = (c) => {
-    console.log(corrections)
     setCorrections([
       ...corrections,
       c
